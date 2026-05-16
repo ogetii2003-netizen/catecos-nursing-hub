@@ -1,0 +1,152 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "ko2xFqVgwimUUdUh49uaw"
+uri = "file://artifacts/healthcare-site/public/images/hero.jpg"
+type = "image"
+title = "nurse helping elderly patient at home"
+
+[[outputs]]
+id = "xYIme8I71OXLwF5Hr344n"
+uri = "file://artifacts/healthcare-site/public/images/about.jpg"
+type = "image"
+title = "healthcare caregiver"
+
+[[outputs]]
+id = "J3Mtc_1K0iejPOZGUQiSB"
+uri = "file://artifacts/healthcare-site/public/images/doctor-visit.jpg"
+type = "image"
+title = "doctor home visit"
+
+[[outputs]]
+id = "-0XSP_L_AsdPW_PNBj-7c"
+uri = "file://artifacts/healthcare-site/public/images/family.jpg"
+type = "image"
+title = "happy patient family"
+
+[[outputs]]
+id = "J7K409w3EUWMmFT8J8fYt"
+uri = "file://artifacts/healthcare-site/public/images/home-care.jpg"
+type = "image"
+title = "home nursing care"
+
+[[outputs]]
+id = "qhvX3najTM2ftEHs90_TL"
+uri = "file://artifacts/healthcare-site/public/images/physio.jpg"
+type = "image"
+title = "physical therapy home"
+
+[[outputs]]
+id = "TvtaKmPrlVzYbidKXwdAB"
+uri = "file://artifacts/healthcare-site/public/images/maternity.jpg"
+type = "image"
+title = "maternity nurse"
+
+[[outputs]]
+id = "Gxjuv-JA0oTc4adDSftht"
+uri = "file://artifacts/healthcare-site/public/images/team-1.jpg"
+type = "image"
+title = "female nurse portrait"
+
+[[outputs]]
+id = "IcrTmghmnTVCNy-PSIb0J"
+uri = "file://artifacts/healthcare-site/public/images/team-2.jpg"
+type = "image"
+title = "male doctor portrait"
+
+[[outputs]]
+id = "wdke4qHStM-NoU3oSastK"
+uri = "file://artifacts/healthcare-site/public/images/team-3.jpg"
+type = "image"
+title = "female caregiver portrait"
+
+[[outputs]]
+id = "tOq8pQsTMzCT75tuReNdH"
+uri = "file://artifacts/healthcare-site/public/images/team-4.jpg"
+type = "image"
+title = "male nurse portrait"
+
+[[outputs]]
+id = "D92bRJKaramEWBre2QtO8"
+uri = "file://artifacts/healthcare-site/public/images/team-5.jpg"
+type = "image"
+title = "female doctor portrait"
+
+[[outputs]]
+id = "39RELwQ9_Nwpj-urTFZO0"
+uri = "file://artifacts/healthcare-site/public/images/team-6.jpg"
+type = "image"
+title = "senior male doctor portrait"
+
+[[outputs]]
+id = "A9ifbmg27Qx74w4Q6JPo0"
+uri = "file://artifacts/healthcare-site/public/images/elderly-care.jpg"
+type = "image"
+title = "elderly home care nurse helping senior"
+
+[[outputs]]
+id = "Z9Zwr424jVoLs4qoHDBTg"
+uri = "file://artifacts/healthcare-site/public/images/chronic.jpg"
+type = "image"
+title = "chronic disease diabetes home monitoring"
+
+[[outputs]]
+id = "sfUXdp0F3Ssl8dqxcGPmC"
+uri = "file://artifacts/healthcare-site/public/images/fall-prevention.jpg"
+type = "image"
+title = "senior fall prevention home safety"
+
+[[outputs]]
+id = "O1Ys18bvARO-m8VzRMt5g"
+uri = "file://artifacts/healthcare-site/public/images/newborn.jpg"
+type = "image"
+title = "postnatal newborn baby mother nurse"
+
+[[outputs]]
+id = "mVyUVK07rEoDNoTdIfPcj"
+uri = "file://artifacts/healthcare-site/public/images/caregiver.jpg"
+type = "image"
+title = "caregiver family support home"
+
+[[outputs]]
+id = "j1YFJe_ZLReeWvsI3Nm78"
+uri = "file://artifacts/healthcare-site/public/images/wound-care.jpg"
+type = "image"
+title = "home nurse wound dressing care"
+
+[[outputs]]
+id = "155hI0F0gtEKRtSrlFcpJ"
+uri = "file://artifacts/healthcare-site/public/images/rehab.jpg"
+type = "image"
+title = "stroke rehabilitation physiotherapy home"
+
+[[outputs]]
+id = "m7YgEmo5FPk4D1Pc8FG59"
+uri = "file://artifacts/healthcare-site/public/images/checkup.jpg"
+type = "image"
+title = "nurse checking blood pressure home visit"
+
+[[outputs]]
+id = "fJBhsdvJ8eO1S4U2oSV1x"
+uri = "file://artifacts/healthcare-site/public/images/elderly-couple.jpg"
+type = "image"
+title = "happy elderly couple home healthcare"
+
+[[outputs]]
+id = "6YuLsqTEos8ThMy5KWMcI"
+uri = "file://artifacts/healthcare-site/public/images/african-nurse.jpg"
+type = "image"
+title = "african nurse patient home care"
+
+[[outputs]]
+id = "91L-hX0b6jvRe6m6fh5gQ"
+uri = "file://artifacts/healthcare-site/public/images/happy-family.jpg"
+type = "image"
+title = "testimonial happy family healthcare"
+
+[[outputs]]
+id = "xnMqON3L5l07oK0I7U9Qw"
+uri = "file://artifacts/healthcare-site/public/images/consultation.jpg"
+type = "image"
+title = "healthcare worker home visit consultation"

@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: catecos-api
+    runtime: node
+    buildCommand: npm install -g pnpm && pnpm install --frozen-lockfile && pnpm --filter @workspace/db run push && pnpm --filter @workspace/api-server run build
+    startCommand: pnpm --filter @workspace/api-server run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+
+  - type: web
+    name: catecos-site
+    runtime: node
+    buildCommand: npm install -g pnpm && pnpm install --frozen-lockfile && pnpm --filter @workspace/healthcare-site run build
+    startCommand: pnpm --filter @workspace/healthcare-site run serve
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
