@@ -9,14 +9,20 @@ const router: IRouter = Router();
 
 // Public: submit a booking
 router.post("/bookings", async (req, res): Promise<void> => {
-  const parsed = insertBookingSchema.safeParse(req.body);
-  if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.message });
-    return;
+  try {
+    const parsed = insertBookingSchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ error: "validation_failed", details: parsed.error.message });
+      return;
+    }
+    const [booking] = await db.insert(bookingsTable).values(parsed.data).returning();
+    req.log.info({ bookingId: booking.id }, "New booking created");
+    res.status(201).json(booking);
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    req.log.error({ err }, "Booking insert failed");
+    res.status(500).json({ error: "insert_failed", details: msg });
   }
-  const [booking] = await db.insert(bookingsTable).values(parsed.data).returning();
-  req.log.info({ bookingId: booking.id }, "New booking created");
-  res.status(201).json(booking);
 });
 
 // Admin: get all bookings
