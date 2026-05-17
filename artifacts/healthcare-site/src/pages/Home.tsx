@@ -51,6 +51,11 @@ export default function Home() {
                   Contact Us
                 </Button>
               </Link>
+              <Link href="/admin">
+                <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 rounded-full px-8 h-14 text-lg backdrop-blur-sm">
+                  Admin Panel
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
