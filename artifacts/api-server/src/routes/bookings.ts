@@ -19,10 +19,8 @@ router.post("/bookings", async (req, res): Promise<void> => {
     req.log.info({ bookingId: booking.id }, "New booking created");
     res.status(201).json(booking);
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    const cause = (err as { cause?: { message?: string } })?.cause?.message ?? null;
     req.log.error({ err }, "Booking insert failed");
-    res.status(500).json({ error: "insert_failed", details: msg, pg_error: cause });
+    res.status(500).json({ error: "booking_failed", message: "Could not save your booking. Please try again." });
   }
 });
 
