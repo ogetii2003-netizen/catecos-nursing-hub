@@ -1,20 +1,33 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { apiUrl } from "@/lib/api";
-import { ShieldAlert, Loader2, AlertCircle, Clock } from "lucide-react";
+import { ShieldAlert, Loader2, AlertCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
+const MAX_RETRIES = 4;
+const RETRY_DELAY_MS = 8000;
+
+async function loginRequest(password: string, signal: AbortSignal) {
+  const res = await fetch(apiUrl("/api/admin/login"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password }),
+    signal,
+  });
+  return res;
+}
+
 export default function AdminLogin() {
   const [, setLocation] = useLocation();
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isWarmingUp, setIsWarmingUp] = useState(false);
+  const [statusMsg, setStatusMsg] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const warmingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("catecos_admin_token");
@@ -22,61 +35,61 @@ export default function AdminLogin() {
   }, [setLocation]);
 
   useEffect(() => {
-    return () => {
-      if (warmingTimerRef.current) clearTimeout(warmingTimerRef.current);
-    };
+    return () => { abortRef.current?.abort(); };
   }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!password) return;
 
-    setIsLoading(true);
-    setIsWarmingUp(false);
-    setError(null);
-
-    warmingTimerRef.current = setTimeout(() => setIsWarmingUp(true), 5000);
-
+    abortRef.current?.abort();
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000);
+    abortRef.current = controller;
 
-    try {
-      const res = await fetch(apiUrl("/api/admin/login"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-        signal: controller.signal,
-      });
+    setIsLoading(true);
+    setError(null);
+    setStatusMsg("Connecting to server…");
 
-      clearTimeout(timeoutId);
-      if (warmingTimerRef.current) clearTimeout(warmingTimerRef.current);
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        const res = await loginRequest(password, controller.signal);
 
-      if (res.status === 401) {
-        setError("Wrong password. Please try again.");
+        if (res.status === 401) {
+          setError("Wrong password. Please try again.");
+          setStatusMsg(null);
+          setIsLoading(false);
+          return;
+        }
+
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          setError(body.error ?? `Server error (${res.status}). Please try again.`);
+          setStatusMsg(null);
+          setIsLoading(false);
+          return;
+        }
+
+        const data = await res.json();
+        localStorage.setItem("catecos_admin_token", data.token);
+        setLocation("/admin/dashboard");
         return;
-      }
 
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        setError(body.error ?? `Server error (${res.status}). Please try again.`);
-        return;
-      }
+      } catch (err: unknown) {
+        if ((err as Error)?.name === "AbortError") {
+          setIsLoading(false);
+          setStatusMsg(null);
+          return;
+        }
 
-      const data = await res.json();
-      localStorage.setItem("catecos_admin_token", data.token);
-      setLocation("/admin/dashboard");
-    } catch (err: unknown) {
-      clearTimeout(timeoutId);
-      if (warmingTimerRef.current) clearTimeout(warmingTimerRef.current);
-
-      if (err instanceof Error && err.name === "AbortError") {
-        setError("Server took too long to respond. Please try again — it should be faster now.");
-      } else {
-        setError("Could not connect to the server. Check your internet and try again.");
+        if (attempt < MAX_RETRIES) {
+          setStatusMsg(`Server is waking up… retrying (${attempt}/${MAX_RETRIES - 1})`);
+          await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
+        } else {
+          setError("Server is unavailable right now. Please wait 30 seconds and try again.");
+          setStatusMsg(null);
+          setIsLoading(false);
+        }
       }
-    } finally {
-      setIsLoading(false);
-      setIsWarmingUp(false);
     }
   };
 
@@ -116,12 +129,10 @@ export default function AdminLogin() {
               </Alert>
             )}
 
-            {isWarmingUp && !error && (
-              <Alert className="border-amber-200 bg-amber-50 text-amber-800">
-                <Clock className="h-4 w-4" />
-                <AlertDescription>
-                  Server is warming up — this can take up to 30 seconds on first use. Please wait…
-                </AlertDescription>
+            {statusMsg && !error && (
+              <Alert className="border-blue-200 bg-blue-50 text-blue-800">
+                <RefreshCw className="h-4 w-4 animate-spin" />
+                <AlertDescription>{statusMsg}</AlertDescription>
               </Alert>
             )}
 
@@ -134,7 +145,7 @@ export default function AdminLogin() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  {isWarmingUp ? "Waiting for server…" : "Logging in…"}
+                  Please wait…
                 </>
               ) : (
                 "Login"
