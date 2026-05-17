@@ -3,7 +3,11 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-const port = Number(process.env.PORT ?? "3000");
+const rawPort = process.env.PORT;
+const port = rawPort !== undefined ? Number(rawPort) : 3000;
+if (rawPort !== undefined && (Number.isNaN(port) || port <= 0)) {
+  throw new Error(`Invalid PORT value: "${rawPort}"`);
+}
 const basePath = process.env.BASE_PATH ?? "/";
 const isReplit = process.env.REPL_ID !== undefined;
 
