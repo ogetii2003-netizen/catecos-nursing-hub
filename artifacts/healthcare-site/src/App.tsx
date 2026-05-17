@@ -24,8 +24,8 @@ function Router() {
       <Route path="/admin" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminDashboard} />
       
-      {/* Public routes wrapped in Layout */}
-      <Route path="/:rest*">
+      {/* Public routes wrapped in Layout — pathless Route catches everything else */}
+      <Route>
         <Layout>
           <Switch>
             <Route path="/" component={Home} />
