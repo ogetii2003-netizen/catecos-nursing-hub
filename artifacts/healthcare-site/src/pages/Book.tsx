@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import { apiUrl } from "@/lib/api";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -47,7 +48,7 @@ export default function Book() {
 
   const onSubmit = async (data: BookingFormValues) => {
     try {
-      await fetch("/api/bookings", {
+      await fetch(apiUrl("/api/bookings"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
