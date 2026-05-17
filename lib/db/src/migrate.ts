@@ -1,6 +1,12 @@
-import { pool } from "./index";
+import pg from "pg";
 
-export async function runMigrations(): Promise<void> {
+const { Pool } = pg;
+
+export async function runMigrations(connectionString: string): Promise<void> {
+  const pool = new Pool({
+    connectionString,
+    ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
+  });
   const client = await pool.connect();
   try {
     await client.query(`
@@ -18,6 +24,9 @@ export async function runMigrations(): Promise<void> {
         updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
       );
 
+      ALTER TABLE bookings ADD COLUMN IF NOT EXISTS notes TEXT;
+      ALTER TABLE bookings ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+
       CREATE TABLE IF NOT EXISTS site_settings (
         id SERIAL PRIMARY KEY,
         key TEXT NOT NULL UNIQUE,
@@ -27,5 +36,6 @@ export async function runMigrations(): Promise<void> {
     `);
   } finally {
     client.release();
+    await pool.end();
   }
 }

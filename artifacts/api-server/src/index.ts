@@ -16,7 +16,7 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-runMigrations()
+runMigrations(process.env["DATABASE_URL"] ?? "")
   .then(() => {
     app.listen(port, (err) => {
       if (err) {
