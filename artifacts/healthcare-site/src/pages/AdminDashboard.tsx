@@ -34,6 +34,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { apiUrl } from "@/lib/api";
 
 interface Booking {
   id: number;
@@ -68,7 +69,7 @@ export default function AdminDashboard() {
 
     const verifyAndFetch = async () => {
       try {
-        const verifyRes = await fetch("/api/admin/verify", {
+        const verifyRes = await fetch(apiUrl("/api/admin/verify"), {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!verifyRes.ok) throw new Error("Invalid token");
@@ -95,7 +96,7 @@ export default function AdminDashboard() {
   const fetchBookings = async (silent = false) => {
     if (!silent) setIsLoading(true);
     try {
-      const res = await fetch("/api/bookings", {
+      const res = await fetch(apiUrl("/api/bookings"), {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch bookings");
@@ -114,7 +115,7 @@ export default function AdminDashboard() {
 
   const handleUpdateStatus = async (id: number, status: string) => {
     try {
-      const res = await fetch(`/api/bookings/${id}`, {
+      const res = await fetch(apiUrl(`/api/bookings/${id}`), {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -136,7 +137,7 @@ export default function AdminDashboard() {
     if (!window.confirm("Are you sure you want to delete this booking?")) return;
     
     try {
-      const res = await fetch(`/api/bookings/${id}`, {
+      const res = await fetch(apiUrl(`/api/bookings/${id}`), {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
