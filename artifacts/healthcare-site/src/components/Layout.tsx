@@ -210,9 +210,12 @@ export function Layout({ children }: LayoutProps) {
 
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <p>&copy; {new Date().getFullYear()} Catecos Nursing Hub. All rights reserved.</p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link href="/admin" className="hover:text-white transition-colors border border-slate-600 hover:border-slate-400 px-3 py-1 rounded text-slate-400">
+                Admin Login
+              </Link>
             </div>
           </div>
         </div>
