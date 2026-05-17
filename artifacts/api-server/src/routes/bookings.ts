@@ -20,8 +20,9 @@ router.post("/bookings", async (req, res): Promise<void> => {
     res.status(201).json(booking);
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
+    const cause = (err as { cause?: { message?: string } })?.cause?.message ?? null;
     req.log.error({ err }, "Booking insert failed");
-    res.status(500).json({ error: "insert_failed", details: msg });
+    res.status(500).json({ error: "insert_failed", details: msg, pg_error: cause });
   }
 });
 
