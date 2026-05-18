@@ -10,42 +10,42 @@ const servicesList = [
     id: "home-nursing",
     title: "Home Nursing Care", 
     desc: "Comprehensive medical care provided by registered nurses in the comfort of your home.",
-    img: "/images/wound-care.jpg",
+    img: "/images/wound-care.png",
     benefits: ["Medication administration", "Wound care & dressing", "Vitals monitoring", "IV therapy"]
   },
   { 
     id: "elderly-care",
     title: "Elderly Care", 
     desc: "Compassionate daily assistance and companionship for seniors to ensure safe, independent living.",
-    img: "/images/elderly-care.jpg",
+    img: "/images/elderly-care.png",
     benefits: ["Assistance with daily living activities", "Fall prevention", "Meal preparation", "Companionship"]
   },
   { 
     id: "post-surgery",
     title: "Post-Surgery Care", 
     desc: "Specialized recovery support designed to prevent complications and speed up healing after hospital discharge.",
-    img: "/images/checkup.jpg",
+    img: "/images/checkup.png",
     benefits: ["Incision care", "Pain management", "Mobility assistance", "Doctor coordination"]
   },
   { 
     id: "maternity",
     title: "Maternity & Newborn Care", 
     desc: "Expert support for new mothers and babies during those crucial first weeks at home.",
-    img: "/images/newborn.jpg",
+    img: "/images/newborn.png",
     benefits: ["Lactation support", "Newborn vitals monitoring", "Mother's recovery care", "Sleep routine establishment"]
   },
   { 
     id: "physiotherapy",
     title: "Physiotherapy Support", 
     desc: "In-home rehabilitation exercises and mobility support by licensed physical therapists.",
-    img: "/images/rehab.jpg",
+    img: "/images/rehab.png",
     benefits: ["Post-injury rehab", "Stroke recovery", "Arthritis management", "Strength building"]
   },
   { 
     id: "24-7-care",
     title: "24/7 Continuous Care", 
     desc: "Around-the-clock monitoring and support for patients requiring constant medical supervision.",
-    img: "/images/caregiver.jpg",
+    img: "/images/caregiver.png",
     benefits: ["Shift-based nursing", "Overnight monitoring", "Emergency response readiness", "Continuous comfort care"]
   }
 ];

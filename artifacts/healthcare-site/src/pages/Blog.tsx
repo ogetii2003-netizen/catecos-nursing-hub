@@ -14,7 +14,7 @@ const articles = [
     category: "Elderly Care",
     date: "Oct 15, 2023",
     author: "Dr. Robert Foster",
-    img: "/images/fall-prevention.jpg"
+    img: "/images/fall-prevention.png"
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const articles = [
     category: "Recovery",
     date: "Oct 02, 2023",
     author: "Michael Chang, RN",
-    img: "/images/wound-care.jpg"
+    img: "/images/wound-care.png"
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const articles = [
     category: "Therapy",
     date: "Sep 28, 2023",
     author: "Emily Roberts, DPT",
-    img: "/images/rehab.jpg"
+    img: "/images/rehab.png"
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const articles = [
     category: "Maternity",
     date: "Sep 15, 2023",
     author: "Jessica Lopez, RN",
-    img: "/images/newborn.jpg"
+    img: "/images/newborn.png"
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const articles = [
     category: "Elderly Care",
     date: "Sep 05, 2023",
     author: "Dr. Sarah Jenkins",
-    img: "/images/elderly-couple.jpg"
+    img: "/images/elderly-couple.png"
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ const articles = [
     category: "Health Management",
     date: "Aug 22, 2023",
     author: "David Smith, RN",
-    img: "/images/chronic.jpg"
+    img: "/images/chronic.png"
   }
 ];
 

@@ -16,7 +16,7 @@ export default function Home() {
       <section className="relative w-full h-[600px] md:h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero.jpg" 
+            src="/images/hero.png" 
             alt="Nurse helping elderly patient" 
             className="w-full h-full object-cover"
           />
@@ -104,9 +104,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Elderly Care", desc: "Compassionate daily assistance, medication management, and companionship for seniors.", img: "/images/elderly-care.jpg" },
-              { title: "Post-Surgery Care", desc: "Specialized recovery support, wound care, and vital monitoring after hospital discharge.", img: "/images/checkup.jpg" },
-              { title: "Physiotherapy", desc: "In-home rehabilitation exercises and mobility support by licensed therapists.", img: "/images/rehab.jpg" },
+              { title: "Elderly Care", desc: "Compassionate daily assistance, medication management, and companionship for seniors.", img: "/images/elderly-care.png" },
+              { title: "Post-Surgery Care", desc: "Specialized recovery support, wound care, and vital monitoring after hospital discharge.", img: "/images/checkup.png" },
+              { title: "Physiotherapy", desc: "In-home rehabilitation exercises and mobility support by licensed therapists.", img: "/images/rehab.png" },
             ].map((service, i) => (
               <motion.div 
                 key={service.title}

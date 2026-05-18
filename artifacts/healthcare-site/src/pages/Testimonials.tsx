@@ -11,7 +11,7 @@ const reviews = [
     name: "Amina Waweru",
     role: "Daughter of Patient",
     rating: 5,
-    img: "/images/review-1.jpg",
+    img: "/images/review-1.png",
     text: "The nurses from Catecos Nursing Hub were an absolute godsend during my father's recovery from hip surgery. Professional, incredibly kind, and always on time. They made a stressful situation so much easier for our whole family.",
     date: "2 weeks ago"
   },
@@ -20,7 +20,7 @@ const reviews = [
     name: "John Mwangi",
     role: "Patient",
     rating: 5,
-    img: "/images/review-2.jpg",
+    img: "/images/review-2.png",
     text: "After my heart attack, I needed daily monitoring. The team at Catecos Nursing Hub didn't just check my vitals; they genuinely cared about my mental well-being too. I felt like I was in a private hospital.",
     date: "1 month ago"
   },
@@ -29,7 +29,7 @@ const reviews = [
     name: "Mercy Njeri",
     role: "New Mother",
     rating: 5,
-    img: "/images/review-3.jpg",
+    img: "/images/review-3.png",
     text: "Having a maternity nurse for the first two weeks was the best decision we made. She helped with feeding, sleep schedules, and gave me the confidence I needed as a first-time mom.",
     date: "2 months ago"
   },
@@ -38,7 +38,7 @@ const reviews = [
     name: "Peter Otieno",
     role: "Son of Patient",
     rating: 4,
-    img: "/images/review-4.jpg",
+    img: "/images/review-4.png",
     text: "Excellent elderly care services. My mother has dementia and can be difficult, but her caregiver handles everything with such grace and patience. Highly recommend their services.",
     date: "3 months ago"
   },
@@ -47,7 +47,7 @@ const reviews = [
     name: "Rose Achieng",
     role: "Patient",
     rating: 5,
-    img: "/images/review-5.jpg",
+    img: "/images/review-5.png",
     text: "The physiotherapy at home was fantastic. My therapist brought all the necessary equipment and tailored the exercises perfectly. I recovered my mobility much faster than expected.",
     date: "4 months ago"
   },
@@ -56,7 +56,7 @@ const reviews = [
     name: "James Kariuki",
     role: "Husband of Patient",
     rating: 5,
-    img: "/images/review-6.jpg",
+    img: "/images/review-6.png",
     text: "When my wife needed 24/7 care, Catecos Nursing Hub stepped in immediately. The seamless handover between nurses and their constant communication with our doctor gave us total peace of mind.",
     date: "5 months ago"
   }

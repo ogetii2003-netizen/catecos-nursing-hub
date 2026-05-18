@@ -11,42 +11,42 @@ const teamMembers = [
     name: "Dr. Wanjiku Kamau",
     role: "Chief Medical Officer",
     qualifications: "MD, Board Certified",
-    img: "/images/team-k1.jpg"
+    img: "/images/team-k1.png"
   },
   {
     id: 2,
     name: "Brian Ochieng",
     role: "Head of Nursing",
     qualifications: "RN, BSN",
-    img: "/images/team-k2.jpg"
+    img: "/images/team-k2.png"
   },
   {
     id: 3,
     name: "Faith Muthoni",
     role: "Senior Physiotherapist",
     qualifications: "DPT",
-    img: "/images/team-k3.jpg"
+    img: "/images/team-k3.png"
   },
   {
     id: 4,
     name: "Dr. Samuel Mutua",
     role: "Senior Geriatrician",
     qualifications: "MD, FACP",
-    img: "/images/team-k4.jpg"
+    img: "/images/team-k4.png"
   },
   {
     id: 5,
     name: "Grace Akinyi",
     role: "Lead Maternity Nurse",
     qualifications: "RN, LCCE",
-    img: "/images/team-k5.jpg"
+    img: "/images/team-k5.png"
   },
   {
     id: 6,
     name: "Daniel Kipchoge",
     role: "Critical Care Specialist",
     qualifications: "RN, CCRN",
-    img: "/images/team-k6.jpg"
+    img: "/images/team-k6.png"
   }
 ];
 

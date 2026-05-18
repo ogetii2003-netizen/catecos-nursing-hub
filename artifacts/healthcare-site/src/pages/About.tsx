@@ -65,7 +65,7 @@ export default function About() {
               className="relative"
             >
               <img 
-                src="/images/about.jpg" 
+                src="/images/about.png" 
                 alt="Healthcare professional with patient" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
@@ -147,10 +147,10 @@ export default function About() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src="/images/african-nurse.jpg" alt="Catecos nurse with patient" className="w-full h-64 object-cover rounded-2xl shadow-lg" />
-              <img src="/images/happy-family.jpg" alt="Happy family with caregiver" className="w-full h-64 object-cover rounded-2xl shadow-lg mt-8" />
-              <img src="/images/consultation.jpg" alt="Healthcare consultation" className="w-full h-64 object-cover rounded-2xl shadow-lg -mt-4" />
-              <img src="/images/caregiver.jpg" alt="Caregiver support" className="w-full h-64 object-cover rounded-2xl shadow-lg mt-4" />
+              <img src="/images/african-nurse.png" alt="Catecos nurse with patient" className="w-full h-64 object-cover rounded-2xl shadow-lg" />
+              <img src="/images/happy-family.png" alt="Happy family with caregiver" className="w-full h-64 object-cover rounded-2xl shadow-lg mt-8" />
+              <img src="/images/consultation.png" alt="Healthcare consultation" className="w-full h-64 object-cover rounded-2xl shadow-lg -mt-4" />
+              <img src="/images/caregiver.png" alt="Caregiver support" className="w-full h-64 object-cover rounded-2xl shadow-lg mt-4" />
             </div>
           </div>
         </div>
